@@ -1,5 +1,5 @@
 import { Schema, model, type Document } from 'mongoose';
-import { type ICategory, categorySchema } from './Category.js';
+import { type ICategory, categorySchema } from './Budget.js';
 import bcrypt from 'bcrypt';
 
 interface IUser extends Document {
