@@ -1,27 +1,21 @@
 import ReactDOM from 'react-dom/client'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
-
 import App from './App'
-import HomeBase from './pages/Home'
-import Categories from './pages/Categories'
-import Error from './pages/Error'
+import HomeBase from './pages/HomeBase'
+import UiUx from './pages/UiUx'
+import ErrorPage from './pages/Error'
 
+{}
 const router = createBrowserRouter([
   {
     path: '/',
     element: <App />,
-    errorElement: <Error />,
+    errorElement: <ErrorPage />,
     children: [
-      {
-        index: true,
-        element: <HomeBase />,
-      },
-      {
-        path: '/------',
-        element: <UiUx/>,
-      },
-    ],
-  },
+      { index: true, element: <HomeBase /> },
+      { path: '/uiux', element: <UiUx /> }
+    ]
+  }
 ]);
 
 const rootElement = document.getElementById('root');
