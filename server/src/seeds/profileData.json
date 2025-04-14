@@ -1,6 +1,7 @@
 {
     "profile": {
-      "userId": "user123",  // example identifier
+      "username": "SlapHappy",
+      "password": "password",
       "budget": [
         {
           "category": "Income",
