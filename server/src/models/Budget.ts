@@ -7,7 +7,7 @@ interface ISubcategory extends Document {
 
 interface ICategory extends Document {
     name: string;
-    subcategories: ISubcategory[];
+    subcategories: [ISubcategory];
   }
   
   const categorySchema = new Schema<ICategory>(
