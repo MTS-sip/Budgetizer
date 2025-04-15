@@ -5,7 +5,7 @@ import bcrypt from 'bcrypt';
 interface IUser extends Document {
   username: string;
   password: string;
-  budget: [ICategory]
+  budget: [ICategory];
   isCorrectPassword(password: string): Promise<boolean>;
 }
 

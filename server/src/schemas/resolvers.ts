@@ -23,25 +23,25 @@ const resolvers = {
         throw new AuthenticationError('Invalid credentials');
       }
 
-      const token = signToken(user.username, user.email, user._id);
+      const token = signToken(user.username, user._id);
       return { token, user };
     },
-    updateSubcategory: async (_parent, { username, input }, context: IUserContext) => {
+    updateSubcategory: async (_parent: any, { username, input }: { username: string; input: { category: string; name: string; amount: number } }, context: IUserContext) => {
       if (!context.user || context.user.username !== username) {
         throw new AuthenticationError('Not authorized to update this user');
       }
     
-      const { category, name, amount } = input;
+      const { name, amount } = input;
     
       const user = await User.findOne({ username });
       if (!user) {
         throw new Error('User not found');
       }
     
-      const budgetCategory = user.budget.find(cat => cat.category === category);
+      const budgetCategory = user.budget.find(cat => cat.name === name);
     
       if (!budgetCategory) {
-        throw new Error(`Budget category "${category}" not found`);
+        throw new Error(`Budget category "${name}" not found`);
       }
     
       // Check if the subcategory already exists
@@ -52,7 +52,7 @@ const resolvers = {
         existingSub.amount = amount;
       } else {
         // If not, push a new one
-        budgetCategory.subcategories.push({ name, amount });
+        budgetCategory.subcategories.push({ name , amount });
       }
     
       await user.save();
