@@ -25,7 +25,7 @@ const startApolloServer = async () => {
   app.use(express.urlencoded({ extended: false }));
   app.use(express.json());
 
-  app.use('/graphql', expressMiddleware(server));
+  app.use('/graphql', expressMiddleware(server as any));
 
   app.listen(PORT, () => {
     console.log(`API server running on port ${PORT}!`);
