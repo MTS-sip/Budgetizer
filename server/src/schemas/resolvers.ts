@@ -23,7 +23,7 @@ const resolvers = {
         throw new AuthenticationError('Invalid credentials');
       }
 
-      const token = signToken(user.username, user.email, user._id);
+      const token = signToken(user.username, user._id);
       return { token, user };
     },
     updateSubcategory: async (_parent, { username, input }, context: IUserContext) => {
