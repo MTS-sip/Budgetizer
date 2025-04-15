@@ -1,6 +1,5 @@
-import { gql } from '@apollo/client';
-
-const typeDefs = gql`
+import { gql } from 'graphql';
+const typeDefs = gql `
 
   type Subcategory {
     name: String!
@@ -38,5 +37,4 @@ const typeDefs = gql`
     updateSubcategory(username: String!, input: SubcategoryInput!): User
   }
 `;
-
 export default typeDefs;
