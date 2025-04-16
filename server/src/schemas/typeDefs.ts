@@ -7,9 +7,15 @@ const typeDefs = gql`
     amount: Float!
   }
 
-  type BudgetCategory {
-    category: String!
+  type Category {
+    id: ID!
+    name: String!
     subcategories: [Subcategory!]!
+  }
+
+  input SubcategoryInput {
+    name: String!
+    amount: Float!
   }
 
   type User {
@@ -35,8 +41,9 @@ const typeDefs = gql`
 
   type Mutation {
     login(email: String!, password: String!): Auth
-    updateSubcategory(username: String!, input: SubcategoryInput!): User
+    updateSubcategory(categoryId: ID!, subcategoryInput: SubcategoryInput!): Category!
   }
+
 `;
 
 export default typeDefs;
