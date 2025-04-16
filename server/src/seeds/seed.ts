@@ -1,5 +1,5 @@
 import db from '../config/connection.js';
-import { Profile } from '../models/index.js';
+import { User } from '../models/index.js';
 import profileSeeds from './profileData.json' assert { type: "json" };
 import cleanDB from './cleanDB.js';
 
@@ -8,7 +8,7 @@ const seedDatabase = async (): Promise<void> => {
     await db();
     await cleanDB();
 
-    await Profile.insertMany(profileSeeds);
+    await User.insertMany(profileSeeds);
 
     console.log('Seeding completed successfully!');
     process.exit(0);
