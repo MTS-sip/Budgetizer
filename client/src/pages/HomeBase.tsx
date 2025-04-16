@@ -71,7 +71,7 @@ const HomeBase: React.FC = () => {
                 fluid
                 selection
                 options={categoryOptions}
-                onChange={(e, { value }) => setSelectedCategory(value as string)}
+                onChange={(_, { value }) => setSelectedCategory(value as string)}
               />
             </Form.Field>
             <InputField
