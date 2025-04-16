@@ -1,5 +1,6 @@
 import type IUserContext from '../interfaces/UserContext.js';
 import type IUserDocument from '../interfaces/UserDocument.js';
+import { Category } from '../models/index.js';
 import { User } from '../models/index.js';
 import { signToken, AuthenticationError } from '../services/auth-service.js';
 
@@ -26,38 +27,33 @@ const resolvers = {
       const token = signToken(user.username, user._id);
       return { token, user };
     },
-    updateSubcategory: async (_parent: any, { username, input }: { username: string; input: { name: string; amount: number } }, context: IUserContext) => {
-      if (!context.user || context.user.username !== username) {
-        throw new AuthenticationError('Not authorized to update this user');
+    updateSubcategory: async (
+      _: any,
+      {
+        categoryId,
+        subcategoryInput: { name, amount },
+      }: { categoryId: string; subcategoryInput: { name: string; amount: number } }
+    ) => {
+      const category = await Category.findById(categoryId);
+      if (!category) {
+        throw new Error('Category not found');
       }
-    
-      const { name, amount } = input;
-    
-      const user = await User.findOne({ username });
-      if (!user) {
-        throw new Error('User not found');
-      }
-    
-      const budgetCategory = user.budget.find(cat => cat.name === name);
-    
-      if (!budgetCategory) {
-        throw new Error(`Budget category "${name}" not found`);
-      }
-    
-      // Check if the subcategory already exists
-      const existingSub = budgetCategory.subcategories.find(sub => sub.name === name);
-    
-      if (existingSub) {
-        // If subcategory exists, update it
-        existingSub.amount = amount;
+
+      const existingSubcategory = category.subcategories.find(
+        (subcat) => subcat.name === name
+      );
+
+      if (existingSubcategory) {
+        // Update amount if subcategory exists
+        existingSubcategory.amount = amount;
       } else {
-        // If not, push a new one
-        budgetCategory.subcategories.push({ name, amount });
+        // Add new subcategory
+        category.subcategories.push({ name, amount } as any);
       }
-    
-      await user.save();
-      return user;
-    }
+
+      await category.save();
+      return category;
+    },
   },
 };
 
