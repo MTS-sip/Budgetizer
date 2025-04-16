@@ -1,4 +1,4 @@
-import { gql } from '@apollo/client';
+import { gql } from 'graphql-tag';
 
 const typeDefs = gql`
 
@@ -22,7 +22,7 @@ const typeDefs = gql`
     _id: ID!
     username: String!
     password: String!
-    budget: [BudgetCategory!]!
+    budget: [Category!]!
   }
 
   type Auth {
