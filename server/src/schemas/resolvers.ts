@@ -16,8 +16,8 @@ const resolvers = {
     },
   },
   Mutation: {
-    login: async (_parent: any, { email, password }: { email: string; password: string }): Promise<{ token: string; user: IUserDocument }> => {
-      const user = await User.findOne({ email });
+    login: async (_parent: any, { username, password }: { username: string; password: string }): Promise<{ token: string; user: IUserDocument }> => {
+      const user = await User.findOne({ username });
 
       if (!user || !(await user.isCorrectPassword(password))) {
         throw new AuthenticationError('Invalid credentials');
