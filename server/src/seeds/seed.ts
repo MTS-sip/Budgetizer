@@ -1,22 +1,31 @@
 import db from '../config/connection.js';
 import { User } from '../models/index.js';
-import profileSeeds from './profileData.json' assert { type: "json" };
+import fs from 'fs';
+import path from 'path';
+import { fileURLToPath } from 'url';
 import cleanDB from './cleanDB.js';
+
+// Needed to emulate __dirname in ESM
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+// Read JSON manually
+const profileSeeds = JSON.parse(
+  fs.readFileSync(path.resolve(__dirname, './profileData.json'), 'utf-8')
+);
 
 const seedDatabase = async (): Promise<void> => {
   try {
     await db();
     await cleanDB();
-
-    await User.insertMany(profileSeeds);
-
-    console.log('Seeding completed successfully!');
+    await User.insertMany(profileSeeds.user); // ⬅️ Important: insert just the user object
+    console.log('✅ Seeding completed successfully!');
     process.exit(0);
   } catch (error: unknown) {
     if (error instanceof Error) {
-      console.error('Error seeding database:', error.message);
+      console.error('❌ Error seeding database:', error.message);
     } else {
-      console.error('Unknown error seeding database');
+      console.error('❌ Unknown error seeding database');
     }
     process.exit(1);
   }

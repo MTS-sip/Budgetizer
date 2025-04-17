@@ -40,7 +40,7 @@ const resolvers = {
       }
 
       const existingSubcategory = category.subcategories.find(
-        (subcat) => subcat.name === name
+        (subcat: { name: string; amount: number }) => subcat.name === name
       );
 
       if (existingSubcategory) {
