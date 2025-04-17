@@ -1,4 +1,4 @@
 import User from './User.js';
-import Category from './Budget.js';
+import { categorySchema, subcategorySchema, ICategory, ISubcategory } from './Budget.js';
 
-export { User, Category };
+export { User, categorySchema, subcategorySchema, ICategory, ISubcategory };
