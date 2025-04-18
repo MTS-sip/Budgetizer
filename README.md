@@ -1,12 +1,8 @@
 # 23 Final Project: MERN Stack Single-Page Application
 
-Projects have played a key role in your journey to becoming a software developer. As you apply for development jobs, your portfolio is absolutely vital to opening doors to opportunities. Your portfolio showcases high-quality deployed examples of your work, and you can use your finished projects for that very purpose.
-
-This project is a fantastic opportunity to show employers your collaborative skills and coding abilities, especially in the context of a scalable, user-focused MERN app. Remember that employers want to see what you can do, but they also want to see how you work with other developers. The more examples of deployed collaborative work you have in your portfolio, the more likely you are to get an interview and a job.
-
 ## Project Requirements
 
-Your group will use everything you’ve learned throughout this course to create a MERN stack single-page application that works with real-world data to solve a real-world challenge, with a focus on data and user demand. This project will provide you with the best opportunity to demonstrate your problem-solving skills, which employers will want to see during interviews. Once again, the user story and acceptance criteria will depend on the project that you create, but your project must fulfill the following requirements:
+Your group will use everything you’ve learned throughout this course to create a MERN stack single-page application that works with real-world data to solve a real-world challenge, with a focus on data and user demand. 
 
 * Use React for the front end.
 
@@ -34,25 +30,20 @@ Your group will use everything you’ve learned throughout this course to create
 
 * Have a high-quality README (with unique name, description, technologies used, screenshot, and link to deployed application).
 
+* needs to look professional and be mobile-friendly.
+
+
 ### CSS Styling
+
+* needs to look professional and be mobile-friendly.
 
 Instead of using a CSS library like Bootstrap, consider one of the following suggestions:
 
-* Look into the concept of CSS-in-JS, which abstracts CSS to the component level, using JavaScript to describe styles in a declarative and maintainable way. Some popular libraries include [styled-components](https://styled-components.com/) and [Emotion](https://emotion.sh/docs/introduction).
+* Look into the concept of  CSS-in-JS, which abstracts CSS to the component level, using JavaScript to describe styles in a declarative and maintainable way. Some popular libraries include [styled-components](https://styled-components.com/) and [Emotion](https://emotion.sh/docs/introduction).
 
-* Try using a component library, such as [Semantic UI](https://semantic-ui.com/), [Chakra UI](https://chakra-ui.com/), or [Ant Design](https://ant.design/).
+* Try using a component library, such as [Semantic UI](https://semantic-ui.com/)
 
 * Create all the CSS for your application just using CSS.
-
-Ultimately, it doesn't matter which of these options you choose&mdash;it just needs to look professional and be mobile-friendly.
-
-### Alternative Project Using Python
-
-You also have the option to replace use Python as your back-end language, which would replace the following requirement:
-
-* Use GraphQL with a Node.js and Express.js server.
-
-> **Important**: If you choose to go this route, please note that this will likely require additional work from your group, as the curriculum doesn't cover full-stack Python applications. Please speak to your instructional team prior to choosing this option.
 
 ## Presentation Requirements
 
@@ -142,5 +133,4 @@ This project is graded based on the following criteria:
 
 * The URL of the GitHub repository, with a unique name and a README describing the project.
 
----
-© 2024 edX Boot Camps LLC. Confidential and Proprietary. All Rights Reserved.
+
