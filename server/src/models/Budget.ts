@@ -11,12 +11,12 @@ export const subcategorySchema = new Schema<ISubcategory>({
 });
 
 export interface ICategory {
-  name: string;
-  subcategories: [ISubcategory];
+  category: string;
+  subcategories: ISubcategory[];
 }
 
 export const categorySchema = new Schema<ICategory>({
-  name: { type: String, required: true },
+  category: { type: String, required: true },
   subcategories: {
     type: [subcategorySchema],
     required: true,

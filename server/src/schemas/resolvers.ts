@@ -1,5 +1,6 @@
 import type IUserContext from '../interfaces/UserContext.js';
 import type IUserDocument from '../interfaces/UserDocument.js';
+import { Category } from '../models/index.js';
 import { User } from '../models/index.js';
 import { signToken, AuthenticationError } from '../services/auth-service.js';
 
@@ -27,48 +28,30 @@ const resolvers = {
       return { token, user };
     },
     updateSubcategory: async (
-      _parent: any,
+      _: any,
       {
-        categoryName,
+        categoryId,
         subcategoryInput: { name, amount },
-      }: { categoryName: string; subcategoryInput: { name: string; amount: number } },
-      context: IUserContext
+      }: { categoryId: string; subcategoryInput: { name: string; amount: number } }
     ) => {
-      if (!context.user) {
-        throw new AuthenticationError('User not authenticated');
-      }
-    
-      const user = await User.findById(context.user._id);
-    
-      if (!user) {
-        throw new Error('User not found');
-      }
-    
-      if (!user.budget) {
-        throw new Error('User has no budget');
-      }
-    
-      // Find the category by name
-      const category = user.budget.find(
-        (cat: any) => cat.name === categoryName
-      );
-    
+      const category = await Category.findById(categoryId);
       if (!category) {
         throw new Error('Category not found');
       }
-    
-      // Find if the subcategory already exists
+
       const existingSubcategory = category.subcategories.find(
-        (subcat: any) => subcat.name === name
+        (subcat: { name: string; amount: number }) => subcat.name === name
       );
-    
+
       if (existingSubcategory) {
+        // Update amount if subcategory exists
         existingSubcategory.amount = amount;
       } else {
-        category.subcategories.push({ name, amount });
+        // Add new subcategory
+        category.subcategories.push({ name, amount } as any);
       }
-    
-      await user.save();
+
+      await category.save();
       return category;
     },
   },
