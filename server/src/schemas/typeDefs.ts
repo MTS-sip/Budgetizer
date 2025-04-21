@@ -32,7 +32,7 @@ const typeDefs = gql`
 
   type Query {
     me: User
-    getBudget: [Category!]!
+    getUser: User
   }
 
   type Mutation {
