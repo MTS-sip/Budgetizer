@@ -12,21 +12,7 @@ export const GET_USER = gql`
           amount
         }
       }
-    }
-  }
-`;
 
-export const GET_BUDGET = gql`
-  query GetUser {
-    getUser {
-      username
-      budget {
-        name
-        subcategories {
-          name
-          amount
-        }
-      }
     }
   }
 `;

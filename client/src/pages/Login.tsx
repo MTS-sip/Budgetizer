@@ -46,7 +46,6 @@ const Login: React.FC = () => {
         name="password"
         type="text"
         size="small"
-        placeholder="Enter your password"
         value={formState.password}
         onChange={handleChange}
         required

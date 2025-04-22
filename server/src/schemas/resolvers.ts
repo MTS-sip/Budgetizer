@@ -31,22 +31,6 @@ const resolvers = {
       return user;
     },
 
-    getBudgetSummary: async (_parent: unknown, _args: Record<string, unknown>, context: IUserContext) => {
-      if (!context.user) throw new AuthenticationError('User not authenticated');
-
-      const user = await User.findById(context.user._id);
-      if (!user || !user.budget) throw new Error('User or budget not found');
-
-      const total = user.budget.reduce((acc, category) => {
-        const categoryTotal = category.subcategories.reduce((sum, sub) => sum + sub.amount, 0);
-        return acc + categoryTotal;
-      }, 0);
-
-      return {
-        categories: user.budget,
-        total,
-      };
-    }
   },
 
   Mutation: {
@@ -55,8 +39,7 @@ const resolvers = {
       { username, password }: { username: string; password: string }
     ): Promise<{ token: string; user: IUserDocument }> => {
       const user = await User.findOne({ username });
-
-      // Debug output
+<<<<
       console.log("Login attempt:", username);
       console.log("User found:", !!user);
       if (user) {
@@ -66,7 +49,7 @@ const resolvers = {
       if (!user || !(await user.isCorrectPassword(password))) {
         throw new AuthenticationError('Invalid credentials');
       }
-
+  
       const token = signToken(user.username, user._id);
       return { token, user };
     },
@@ -88,13 +71,6 @@ const resolvers = {
         { name: 'Food', subcategories: [] },
         { name: 'Transpo', subcategories: [] }
       ];
-
-      const newUser = new User({ username, password, budget: defaultCategories });
-      await newUser.save();
-
-      const token = signToken(newUser.username, newUser._id);
-      return { token, user: newUser };
-    },
 
     updateSubcategory: async (
       _parent: any,
