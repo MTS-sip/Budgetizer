@@ -1,13 +1,31 @@
 import { gql } from '@apollo/client';
 
-// set, budget category list- income, housing, healthcare, rnr, food, transpo
-export const GET_BUDGET = gql`
-  query GetBudget {
-    getBudget {
-      name
-      subcategories {
+// fetch the user, including their budget
+export const GET_USER = gql`
+  query GetUser {
+    getUser {
+      username
+      budget {
         name
-        amount
+        subcategories {
+          name
+          amount
+        }
+      }
+    }
+  }
+`;
+
+export const GET_BUDGET = gql`
+  query GetUser {
+    getUser {
+      username
+      budget {
+        name
+        subcategories {
+          name
+          amount
+        }
       }
     }
   }
