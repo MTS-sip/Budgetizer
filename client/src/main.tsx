@@ -1,7 +1,7 @@
 import ReactDOM from 'react-dom/client'; 
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import App from './App';
-import RequireAuth from './utils/RequireAuth.tsx';
+import RequireAuth from './utils/RequireAuth';
 import HomeBase from './pages/HomeBase';
 import UiUx from './pages/UiUx'
 import Signup from './pages/Signup';
