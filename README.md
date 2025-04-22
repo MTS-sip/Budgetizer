@@ -2,8 +2,6 @@
 
 ## Links--
 
-## 7
-
 - Link 🟢 Deployed URL 🔹 [Budgetizer on RENDER](https:---) 🔹
 
 - Link 🔴 GitHub Repository [Budgetizer](https://github.com/MTS-sip/Budgetizer) 🔴
