@@ -8,7 +8,7 @@ import { ApolloServer } from '@apollo/server';
 import { expressMiddleware } from '@apollo/server/express4';
 
 import { typeDefs, resolvers } from './schemas/index.js';
-import { authMiddleware } from './services/auth-service.js'; // ✅ context JWT decoder
+import { authMiddleware } from './services/auth-service.js';  
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -29,7 +29,7 @@ const startApolloServer = async () => {
   app.use(express.json());
 
   app.use(cors({
-    origin: ['https://frk-3w59.onrender.com', 'http://localhost:3080'],
+    origin: ['https://budgetizer-b0og.onrender.com/', 'http://localhost:3030'],
     credentials: true,
   }));
 
