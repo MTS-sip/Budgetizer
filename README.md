@@ -8,7 +8,7 @@
 
 ## Description
 
-MERN app --- NEED DESC
+MERN app --- NEED DESCRiption
 
 ### Table of Contents
 
