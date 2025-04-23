@@ -1,6 +1,6 @@
 # Budgetizer
 
-## Links---
+## Links--
 
 - Link 🟢 Deployed URL 🔹 [Budgetizer on RENDER](https:---) 🔹
 
@@ -8,7 +8,7 @@
 
 ## Description
 
-MERN app --- NEED DESCRiption
+MERN app --- NEED DESCRi
 
 ### Table of Contents
 
