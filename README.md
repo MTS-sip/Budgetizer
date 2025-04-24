@@ -26,8 +26,7 @@ MERN app --- NEED DESCRi
 
 ### Images
 
-Mock up image 1.l
-
+Mock up image 1.
 Mock up image 2
 
 ### License
