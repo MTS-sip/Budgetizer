@@ -31,12 +31,12 @@ const startApolloServer = async () => {
 
   app.use(
     cors({
-      origin: ['https://frk-3w59.onrender.com', 'http://localhost:3080'],
+      origin: ['https://budgetizer-b0og.onrender.com', 'http://localhost:3030'],
       credentials: true,
     })
   );
 
-  // ✅ Attach decoded user to context with middleware
+  // Attach decoded user to context with middleware
   app.use(
     '/graphql',
     expressMiddleware(server as any, {
@@ -44,7 +44,7 @@ const startApolloServer = async () => {
     })
   );
 
-  // ✅ Serve client files in production
+  // Serve client files in production
   if (process.env.NODE_ENV === 'production') {
     app.use(express.static(path.join(__dirname, '../../client/dist')));
 
