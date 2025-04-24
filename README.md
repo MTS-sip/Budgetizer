@@ -61,13 +61,16 @@ While this version of **Budgetizer** does not include a formal testing framework
 To quickly test login, use the seed credentials (if seeded):
 
 `Username: SlapHappy`
-`Password: password`
+`Password: password`<br>
+
+`Username: ScarletKnight`
+`Password: April23`
 
 ## 📸 Screenshots
 
-![Budgetizer login Screenshot](/client/src/assets/budgetizer-login.png)
+![Budget Table](./client/public/Budgetizer.png)
 
-![Budgetizer homepage Screenshot](/client/src/assets/budgetizer-%20homepage.png)
+![Subcategory Modal](./client/public/modal.png)
 
 ## 📋 License
 
@@ -112,7 +115,7 @@ SOFTWARE.
 To run **Budgetizer** locally, follow these steps:
 
 1. Clone the repository
-   `git clone git@github.com:MTS-sip/Budgetizer.git`
+   `git clone git@github.com:MTS-sip/Budgetizer.git`<br>
    `cd Budgetizer`
 
 2. Install dependencies
@@ -139,7 +142,7 @@ This will run both the client and server concurrently:
 
 6. Open the app
 
-Navigate to http://localhost:3080 in your browser to start using Budgetizer.
+Navigate to [http://localhost:3030 ](http://localhost:3030/)in your browser to start using Budgetizer.
 
 - Make sure MongoDB is running locally or you’re connected to MongoDB Atlas.
 
